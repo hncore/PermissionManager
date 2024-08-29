@@ -1,5 +1,5 @@
 {
-    "name": "backpack/permissionmanager",
+    "name": "hncore/permissionmanager",
     "description": "Users and permissions management interface for Laravel 5 using Backpack CRUD.",
     "keywords": [
         "tabacitu",
@@ -34,7 +34,7 @@
     "prefer-stable": true,
     "require": {
         "spatie/laravel-permission": "^6.4||^5.0||^4.0||^3.0",
-        "backpack/crud": "^6.0"
+        "hncore/crud": "^6.7.34"
     },
     "autoload": {
         "psr-4": {
