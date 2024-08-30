@@ -20,7 +20,7 @@ class PermissionManagerServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public $routeFilePath = '/routes/backpack/permissionmanager.php';
+    public $routeFilePath = '/routes/hncore/permissionmanager.php';
 
     /**
      * Perform post-registration booting of services.
@@ -34,15 +34,15 @@ class PermissionManagerServiceProvider extends ServiceProvider
 
         // use the vendor configuration file as fallback
         $this->mergeConfigFrom(
-            __DIR__.'/config/backpack/permissionmanager.php',
-            'backpack.permissionmanager'
+            __DIR__.'/config/hncore/permissionmanager.php',
+            'hncore.permissionmanager'
         );
 
         // publish config file
         $this->publishes([__DIR__.'/config' => config_path()], 'config');
 
         // publish translation files
-        $this->publishes([__DIR__.'/resources/lang' => app()->langPath().'/vendor/backpack'], 'lang');
+        $this->publishes([__DIR__.'/resources/lang' => app()->langPath().'/vendor/hncore'], 'lang');
 
         // publish route file
         $this->publishes([__DIR__.$this->routeFilePath => base_path($this->routeFilePath)], 'routes');
@@ -63,7 +63,7 @@ class PermissionManagerServiceProvider extends ServiceProvider
         // by default, use the routes file provided in vendor
         $routeFilePathInUse = __DIR__.$this->routeFilePath;
 
-        // but if there's a file with the same name in routes/backpack, use that one
+        // but if there's a file with the same name in routes/hncore, use that one
         if (file_exists(base_path().$this->routeFilePath)) {
             $routeFilePathInUse = base_path().$this->routeFilePath;
         }

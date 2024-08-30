@@ -1,6 +1,6 @@
 # Having trouble using Backpack?
 
-No documentation can be 100% complete and Backpack's is no different, sorry for that. There are plenty of people that follow [the StackOverflow tag "backpack-for-laravel"](stackoverflow.com/questions/tagged/backpack-for-laravel) and are glad to help you out. Post your question there and please include:
+No documentation can be 100% complete and Backpack's is no different, sorry for that. There are plenty of people that follow [the StackOverflow tag "hncore-for-laravel"](stackoverflow.com/questions/tagged/hncore-for-laravel) and are glad to help you out. Post your question there and please include:
 - (A) what you did
 - (B) what you expected to happen
 - (C) what happened
@@ -9,7 +9,7 @@ No documentation can be 100% complete and Backpack's is no different, sorry for 
 
 # Idea for a new feature?
 
-**[Open an issue](https://github.com/laravel-backpack/crud) and tell the community you are willing to submit a PR.** We usually end up with better solutions when we talk about it and everybody pitches in with their opinion. Plus, some features might be better presented as a separate package, a tutorial or a code snippet.
+**[Open an issue](https://github.com/laravel-hncore/crud) and tell the community you are willing to submit a PR.** We usually end up with better solutions when we talk about it and everybody pitches in with their opinion. Plus, some features might be better presented as a separate package, a tutorial or a code snippet.
 
 PR Rules:
 
@@ -19,7 +19,7 @@ PR Rules:
 
 # Discovered a bug?
 
-**Step 1. [Open an issue](https://github.com/laravel-backpack/crud).** Please include:
+**Step 1. [Open an issue](https://github.com/laravel-hncore/crud).** Please include:
 - (A) what you did
 - (B) what you expected to happen
 - (C) what happened
@@ -37,11 +37,11 @@ If you've never submitted a PR before, don't worry, it's not that difficult. Rea
 # Want to help out?
 
 Thank you, thank you, thank you! You can:
-- [add a StackOverflow filter](https://stackexchange.com/filters) to receive emails for backpack-for-laravel questions;
+- [add a StackOverflow filter](https://stackexchange.com/filters) to receive emails for hncore-for-laravel questions;
 - [install Gitter](https://gitter.im/BackpackForLaravel/Lobby) and help people out in real-time;
-- [star Backpack\CRUD on Github](https://github.com/laravel-backpack/crud) so the repository can get more views;
-- [purchase a commercial license](https://www.backpackforlaravel.com/commercial-license/form), if you use Backpack to make money;
-- [stock up on cheaper commercial licenses](https://www.backpackforlaravel.com/commercial-license/form) before we bump the price to $39;
+- [star Backpack\CRUD on Github](https://github.com/laravel-hncore/crud) so the repository can get more views;
+- [purchase a commercial license](https://www.hncoreforlaravel.com/commercial-license/form), if you use Backpack to make money;
+- [stock up on cheaper commercial licenses](https://www.hncoreforlaravel.com/commercial-license/form) before we bump the price to $39;
 - ALL OF THE ABOVE. Groundbreaking, I know, right? :-)
 
 **Happy coding**!

@@ -14,7 +14,7 @@ class UserUpdateCrudRequest extends FormRequest
     public function authorize()
     {
         // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        return hncore_auth()->check();
     }
 
     /**
@@ -27,7 +27,7 @@ class UserUpdateCrudRequest extends FormRequest
         $id = $this->get('id') ?? request()->route('id');
 
         return [
-            'email'    => 'required|unique:'.config('backpack.permissionmanager.models.user', 'users').',email,'.$id,
+            'email'    => 'required|unique:'.config('hncore.permissionmanager.models.user', 'users').',email,'.$id,
             'name'     => 'required',
             'password' => 'confirmed',
         ];

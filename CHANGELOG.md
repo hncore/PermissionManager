@@ -116,7 +116,7 @@ https://github.com/Laravel-Backpack/PermissionManager/releases
 - ability to specify guards when creating/updating roles and permissions; config option to turn that on and off (default: false);
 
 ### Removed
-- config file for spatie/laravel-permission; models being used in CRUDs are now defined in ```config/backpack/permissionmanager.php```;
+- config file for spatie/laravel-permission; models being used in CRUDs are now defined in ```config/hncore/permissionmanager.php```;
 - migrations, since they are provided by spatie/laravel-permission;
 
 
@@ -172,7 +172,7 @@ https://github.com/Laravel-Backpack/PermissionManager/releases
 - support for Backpack\CRUD 3.4;
 
 ### Fixed
-- routes are now using the ```backpack_middleware()``` instead of hardcoded ```admin```; merges #151;
+- routes are now using the ```hncore_middleware()``` instead of hardcoded ```admin```; merges #151;
 
 ### Removed
 - support for Backpack\CRUD 3.3 (since we're using the new middleware);

@@ -21,21 +21,21 @@ class PermissionCrudController extends CrudController
 
     public function setup()
     {
-        $this->role_model = $role_model = config('backpack.permissionmanager.models.role');
-        $this->permission_model = $permission_model = config('backpack.permissionmanager.models.permission');
+        $this->role_model = $role_model = config('hncore.permissionmanager.models.role');
+        $this->permission_model = $permission_model = config('hncore.permissionmanager.models.permission');
 
         $this->crud->setModel($permission_model);
-        $this->crud->setEntityNameStrings(trans('backpack::permissionmanager.permission_singular'), trans('backpack::permissionmanager.permission_plural'));
-        $this->crud->setRoute(backpack_url('permission'));
+        $this->crud->setEntityNameStrings(trans('hncore::permissionmanager.permission_singular'), trans('hncore::permissionmanager.permission_plural'));
+        $this->crud->setRoute(hncore_url('permission'));
 
         // deny access according to configuration file
-        if (config('backpack.permissionmanager.allow_permission_create') == false) {
+        if (config('hncore.permissionmanager.allow_permission_create') == false) {
             $this->crud->denyAccess('create');
         }
-        if (config('backpack.permissionmanager.allow_permission_update') == false) {
+        if (config('hncore.permissionmanager.allow_permission_update') == false) {
             $this->crud->denyAccess('update');
         }
-        if (config('backpack.permissionmanager.allow_permission_delete') == false) {
+        if (config('hncore.permissionmanager.allow_permission_delete') == false) {
             $this->crud->denyAccess('delete');
         }
     }
@@ -44,14 +44,14 @@ class PermissionCrudController extends CrudController
     {
         $this->crud->addColumn([
             'name'  => 'name',
-            'label' => trans('backpack::permissionmanager.name'),
+            'label' => trans('hncore::permissionmanager.name'),
             'type'  => 'text',
         ]);
 
-        if (config('backpack.permissionmanager.multiple_guards')) {
+        if (config('hncore.permissionmanager.multiple_guards')) {
             $this->crud->addColumn([
                 'name'  => 'guard_name',
-                'label' => trans('backpack::permissionmanager.guard_type'),
+                'label' => trans('hncore::permissionmanager.guard_type'),
                 'type'  => 'text',
             ]);
         }
@@ -79,14 +79,14 @@ class PermissionCrudController extends CrudController
     {
         $this->crud->addField([
             'name'  => 'name',
-            'label' => trans('backpack::permissionmanager.name'),
+            'label' => trans('hncore::permissionmanager.name'),
             'type'  => 'text',
         ]);
 
-        if (config('backpack.permissionmanager.multiple_guards')) {
+        if (config('hncore.permissionmanager.multiple_guards')) {
             $this->crud->addField([
                 'name'    => 'guard_name',
-                'label'   => trans('backpack::permissionmanager.guard_type'),
+                'label'   => trans('hncore::permissionmanager.guard_type'),
                 'type'    => 'select_from_array',
                 'options' => $this->getGuardTypes(),
             ]);

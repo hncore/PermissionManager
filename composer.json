@@ -3,18 +3,18 @@
     "description": "Users and permissions management interface for Laravel 5 using Backpack CRUD.",
     "keywords": [
         "tabacitu",
-        "laravel backpack",
-        "backpack permission",
-        "backpack roles",
-        "backpack user management",
+        "laravel hncore",
+        "hncore permission",
+        "hncore roles",
+        "hncore user management",
         "updivision",
-        "backpack",
+        "hncore",
         "manage permission",
         "manage roles",
         "manage users",
         "users roles admin"
     ],
-    "homepage": "https://github.com/laravel-backpack/permissionmanager",
+    "homepage": "https://github.com/laravel-hncore/permissionmanager",
     "license": "proprietary",
     "authors": [
         {
@@ -25,8 +25,8 @@
         },
         {
             "name": "Cristian Tabacitu",
-            "email": "tabacitu@backpackforlaravel.com",
-            "homepage": "https://backpackforlaravel.com",
+            "email": "tabacitu@hncoreforlaravel.com",
+            "homepage": "https://hncoreforlaravel.com",
             "role": "Chief Architect"
         }
     ],

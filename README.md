@@ -5,7 +5,7 @@
 [![Style CI](https://styleci.io/repos/58740020/shield)](https://styleci.io/repos/58740020)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Admin interface for [spatie/laravel-permission](https://github.com/spatie/laravel-permission). It allows admins to easily add/edit/remove users, roles and permissions, using [Laravel Backpack](https://laravelbackpack.com).
+Admin interface for [spatie/laravel-permission](https://github.com/spatie/laravel-permission). It allows admins to easily add/edit/remove users, roles and permissions, using [Laravel Backpack](https://laravelhncore.com).
 
 As opposed to some other packages:
 - a user can have multiple roles;
@@ -18,17 +18,17 @@ This package is just a user interface for [spatie/laravel-permission](https://gi
 
 
 > ### Security updates and breaking changes
-> Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
+> Please **[subscribe to the Backpack Newsletter](http://hncoreforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 
 ## Install
 
-0) This package assumes you've already installed [Backpack for Laravel](https://backpackforlaravel.com). If you haven't, please [install Backpack first](https://backpackforlaravel.com/docs/installation).
+0) This package assumes you've already installed [Backpack for Laravel](https://hncoreforlaravel.com). If you haven't, please [install Backpack first](https://hncoreforlaravel.com/docs/installation).
 
 1) In your terminal:
 
 ``` bash
-composer require backpack/permissionmanager
+composer require hncore/permissionmanager
 ```
 
 2) Finish all installation steps for [spatie/laravel-permission](https://github.com/spatie/laravel-permission#installation), which has been pulled as a dependency. Run its migrations. Publish its config files. Most likely it's:
@@ -39,7 +39,7 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 // then, add the Spatie\Permission\Traits\HasRoles trait to your User model(s)
 ```
 
-3) Publish `backpack\permissionmanager` config file & the migrations:
+3) Publish `hncore\permissionmanager` config file & the migrations:
 ```bash
 php artisan vendor:publish --provider="Backpack\PermissionManager\PermissionManagerServiceProvider" --tag="config" --tag="migrations"
 ```
@@ -50,7 +50,7 @@ php artisan vendor:publish --provider="Backpack\PermissionManager\PermissionMana
 php artisan migrate
 ```
 
-5) The package assumes it's ok to use the default Backpack user model (most likely ```App\Models\User``` to administer Users. Use a different one if you'd like by changing the user model in the ```config/backpack/permissionmanager.php``` file. Any model you're using, make sure it's using the ```CrudTrait``` and ```HasRoles``` traits:
+5) The package assumes it's ok to use the default Backpack user model (most likely ```App\Models\User``` to administer Users. Use a different one if you'd like by changing the user model in the ```config/hncore/permissionmanager.php``` file. Any model you're using, make sure it's using the ```CrudTrait``` and ```HasRoles``` traits:
 ```php
 <?php namespace App\Models;
 
@@ -68,24 +68,24 @@ class User extends Authenticatable
      */
 ```
 
-6) [Optional] Add a menu item for it in ```resources/views/vendor/backpack/ui/inc/menu_items.blade.php```:
+6) [Optional] Add a menu item for it in ```resources/views/vendor/hncore/ui/inc/menu_items.blade.php```:
 
 ```html
-<x-backpack::menu-dropdown title="Add-ons" icon="la la-puzzle-piece">
-    <x-backpack::menu-dropdown-header title="Authentication" />
-    <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" />
-    <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
-    <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" />
-</x-backpack::menu-dropdown>
+<x-hncore::menu-dropdown title="Add-ons" icon="la la-puzzle-piece">
+    <x-hncore::menu-dropdown-header title="Authentication" />
+    <x-hncore::menu-dropdown-item title="Users" icon="la la-user" :link="hncore_url('user')" />
+    <x-hncore::menu-dropdown-item title="Roles" icon="la la-group" :link="hncore_url('role')" />
+    <x-hncore::menu-dropdown-item title="Permissions" icon="la la-key" :link="hncore_url('permission')" />
+</x-hncore::menu-dropdown>
 ```
 
 7) [Optional] If you want to use the ```@can``` handler inside Backpack routes, you can:
 
-(7.A.) Change Backpack to use the default ```web``` guard instead of its own guard. Inside ```config/backpack/base.php``` change:
+(7.A.) Change Backpack to use the default ```web``` guard instead of its own guard. Inside ```config/hncore/base.php``` change:
 ```diff
     // The guard that protects the Backpack admin panel.
     // If null, the config.auth.defaults.guard value will be used.
--   'guard' => 'backpack',
+-   'guard' => 'hncore',
 +   'guard' => null,
 ```
 Note:
@@ -93,7 +93,7 @@ Note:
 
 OR
 
-(7.B.) Add a middleware to all your Backpack routes by adding this to your ```config/backpack/base.php``` file:
+(7.B.) Add a middleware to all your Backpack routes by adding this to your ```config/hncore/base.php``` file:
 ```diff
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of classes
@@ -104,15 +104,15 @@ OR
     ],
 ```
 
-Why? `spatie/laravel-permission` uses the ```Auth``` facade for determining permissions with ```@can```. The ```Auth``` facade uses the default guard defined in ```config/auth.php```, NOT our backpack guard.
+Why? `spatie/laravel-permission` uses the ```Auth``` facade for determining permissions with ```@can```. The ```Auth``` facade uses the default guard defined in ```config/auth.php```, NOT our hncore guard.
 
 Please note:
-- this will make ```auth()``` return the exact same thing as ```backpack_auth()``` on Backpack routes;
-- you only need this if you want to use ```@can```; you can just as well use ```@if(backpack_user()->can('read'))```, which does the exact same thing, but works 100% of the time;
-- when you add new roles and permissions, the guard that gets saved in the database will be "backpack";
+- this will make ```auth()``` return the exact same thing as ```hncore_auth()``` on Backpack routes;
+- you only need this if you want to use ```@can```; you can just as well use ```@if(hncore_user()->can('read'))```, which does the exact same thing, but works 100% of the time;
+- when you add new roles and permissions, the guard that gets saved in the database will be "hncore";
 
 
-8) [Optional] Disallow create/update on your roles or permissions after you define them, using the config file in **config/backpack/permissionmanager.php**. Please note permissions and roles are referenced in code using their name. If you let your admins edit these strings and they do, your permission and role checks will stop working.
+8) [Optional] Disallow create/update on your roles or permissions after you define them, using the config file in **config/hncore/permissionmanager.php**. Please note permissions and roles are referenced in code using their name. If you let your admins edit these strings and they do, your permission and role checks will stop working.
 
 
 ## Customize UserCrudController
@@ -141,42 +141,42 @@ Because the package requires [spatie/laravel-permission](https://github.com/spat
 A permission can be given to a user:
 
 ``` bash
-backpack_user()->givePermissionTo('edit articles');
+hncore_user()->givePermissionTo('edit articles');
 ```
 A permission can be revoked from a user:
 ``` bash
-backpack_user()->revokePermissionTo('edit articles');
+hncore_user()->revokePermissionTo('edit articles');
 ```
 You can test if a user has a permission:
 ``` bash
-backpack_user()->hasPermissionTo('edit articles');
+hncore_user()->hasPermissionTo('edit articles');
 ```
 
 Saved permissions will be registered with the Illuminate\Auth\Access\Gate-class. So you can test if a user has a permission with Laravel's default can-function.
 ``` bash
-backpack_user()->can('edit articles');
+hncore_user()->can('edit articles');
 ```
 ### Using roles and permissions
 
 A role can be assigned to a user:
 ``` bash
-backpack_user()->assignRole('writer');
+hncore_user()->assignRole('writer');
 ```
 A role can be removed from a user:
 ``` bash
-backpack_user()->removeRole('writer');
+hncore_user()->removeRole('writer');
 ```
 You can determine if a user has a certain role:
 ``` bash
-backpack_user()->hasRole('writer');
+hncore_user()->hasRole('writer');
 ```
 You can also determine if a user has any of a given list of roles:
 ``` bash
-backpack_user()->hasAnyRole(Role::all());
+hncore_user()->hasAnyRole(Role::all());
 ```
 You can also determine if a user has all of a given list of roles:
 ``` bash
-backpack_user()->hasAllRoles(Role::all());
+hncore_user()->hasAllRoles(Role::all());
 ```
 The assignRole, hasRole, hasAnyRole, hasAllRoles and removeRole-functions can accept a string, an array, a Role-object or an \Illuminate\Support\Collection-object.
 
@@ -197,7 +197,7 @@ The givePermissionTo and revokePermissionTo-functions can accept a string or a P
 Saved permission and roles are also registered with the Illuminate\Auth\Access\Gate-class.
 
 ``` bash
-backpack_user()->can('edit articles');
+hncore_user()->can('edit articles');
 ```
 ### Using blade directives
 
@@ -229,7 +229,7 @@ You can use Laravel's native @can directive to check if a user has a certain per
 
 ## Use permissions in CRUD controllers
 
-CRUD controllers have methods to [dynamically allow or deny access](https://backpackforlaravel.com/docs/6.x/crud-api#access) to operations. The ```$this->crud->allowAccess()``` and ```$this->crud->denyAccess()``` methods control both:
+CRUD controllers have methods to [dynamically allow or deny access](https://hncoreforlaravel.com/docs/6.x/crud-api#access) to operations. The ```$this->crud->allowAccess()``` and ```$this->crud->denyAccess()``` methods control both:
 - the form's navigation buttons display like Add, Edit, Delete and
 - the security access guards, returning a 403 forbidden error when no permission.
 
@@ -315,12 +315,12 @@ $this->app->bind(
 
 OR
 
-(3.B) by defining the routes in your own ```routes/backpack/permissionmanager.php``` file as explained in [Overwriting fuctionality](https://github.com/Laravel-Backpack/PermissionManager#overwriting-functionality)
+(3.B) by defining the routes in your own ```routes/hncore/permissionmanager.php``` file as explained in [Overwriting fuctionality](https://github.com/Laravel-Backpack/PermissionManager#overwriting-functionality)
 ```php
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin', // the new namespace
-    'prefix'     => config('backpack.base.route_prefix', 'admin'),
-    'middleware' => ['web', backpack_middleware()],
+    'prefix'     => config('hncore.base.route_prefix', 'admin'),
+    'middleware' => ['web', hncore_middleware()],
 ], function () {
     // the adapted controllers
     Route::crud('user', 'UserCrudController');
@@ -328,8 +328,8 @@ Route::group([
 });
 Route::group([
     'namespace'  => '\Backpack\PermissionManager\app\Http\Controllers', // the original namespace
-    'prefix'     => config('backpack.base.route_prefix', 'admin'),
-    'middleware' => ['web', backpack_middleware()],
+    'prefix'     => config('hncore.base.route_prefix', 'admin'),
+    'middleware' => ['web', hncore_middleware()],
 ], function () {
     // to original controllers
     // not modified yet in this example
@@ -389,11 +389,11 @@ Use ```php artisan db:seed --class=PermissionSeeder --force``` in production
 
 To upgrade from PermissionManager 3.x to 4.x:
 - upgrade to spatie/laravel-permission 2.28.2+ - do take note that the DB has changed, and they don't provide a track of the changes;
-- require ```backpack/permissionmanager``` version ```4.0.*``` in your ```composer.json``` file;
-- delete your old ```config/backpack/permissionmanager.php``` file;
+- require ```hncore/permissionmanager``` version ```4.0.*``` in your ```composer.json``` file;
+- delete your old ```config/hncore/permissionmanager.php``` file;
 - follow the installation steps above;
 
-If you are upgrading to a Laravel 8 instalation, please note that User Model may have moved from ```App\User::class``` to ```App\Models\User::class```, check if your config is compliant with that change ```config/backpack/permissionmanager.php```.
+If you are upgrading to a Laravel 8 instalation, please note that User Model may have moved from ```App\User::class``` to ```App\Models\User::class```, check if your config is compliant with that change ```config/hncore/permissionmanager.php```.
 
 ## Change log
 
@@ -402,11 +402,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Overwriting functionality
 
 If you need to modify how this works in a project:
-- create a ```routes/backpack/permissionmanager.php``` file; the package will see that, and load _your_ routes file, instead of the one in the package;
+- create a ```routes/hncore/permissionmanager.php``` file; the package will see that, and load _your_ routes file, instead of the one in the package;
 - create controllers/models that extend the ones in the package, and use those in your new routes file;
 - modify anything you'd like in the new controllers/models;
 
-When creating your own controllers, seeders, make sure you use the ```BackpackUser``` model, instead of the ```User``` model in your app. The easiest would be to use ```config('backpack.base.user_model_fqn')``` which pulls in the User model fully qualified namespace, as defined in your ```config/backpack/base.php```. You might need to instantiate it using ```$model = config('backpack.base.user_model_fqn'); $model = new $model;``` in order to do things like ```$model->where(...)```.
+When creating your own controllers, seeders, make sure you use the ```BackpackUser``` model, instead of the ```User``` model in your app. The easiest would be to use ```config('hncore.base.user_model_fqn')``` which pulls in the User model fully qualified namespace, as defined in your ```config/hncore/base.php```. You might need to instantiate it using ```$model = config('hncore.base.user_model_fqn'); $model = new $model;``` in order to do things like ```$model->where(...)```.
 
 ## Contributing
 
@@ -414,9 +414,9 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email tabacitu@backpackforlaravel.com instead of using the issue tracker.
+If you discover any security related issues, please email tabacitu@hncoreforlaravel.com instead of using the issue tracker.
 
-Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
+Please **[subscribe to the Backpack Newsletter](http://hncoreforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
 ## Credits
 
@@ -426,27 +426,27 @@ Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/ne
 
 ## License
 
-Backpack is free for non-commercial use and 49 EUR/project for commercial use. Please see [License File](LICENSE.md) and [backpackforlaravel.com](https://backpackforlaravel.com/#pricing) for more information.
+Backpack is free for non-commercial use and 49 EUR/project for commercial use. Please see [License File](LICENSE.md) and [hncoreforlaravel.com](https://hncoreforlaravel.com/#pricing) for more information.
 
 ## Hire us
 
 We've spend more than 50.000 hours creating, polishing and maintaining administration panels on Laravel. We've developed e-Commerce, e-Learning, ERPs, social networks, payment gateways and much more. We've worked on admin panels _so much_, that we've created one of the most popular software in its niche - just from making public what was repetitive in our projects.
 
-If you are looking for a developer/team to help you build an admin panel on Laravel, look no further. You'll have a difficult time finding someone with more experience & enthusiasm for this. This is _what we do_. [Contact us](https://backpackforlaravel.com/need-freelancer-or-development-team). Let's see if we can work together.
+If you are looking for a developer/team to help you build an admin panel on Laravel, look no further. You'll have a difficult time finding someone with more experience & enthusiasm for this. This is _what we do_. [Contact us](https://hncoreforlaravel.com/need-freelancer-or-development-team). Let's see if we can work together.
 
 
-[ico-version]: https://img.shields.io/packagist/v/backpack/permissionmanager.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/hncore/permissionmanager.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-dual-blue?style=flat-square
-[ico-travis]: https://img.shields.io/travis/laravel-backpack/permissionmanager/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/permissionmanager.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/laravel-backpack/permissionmanager.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/backpack/permissionmanager.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/laravel-hncore/permissionmanager/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/laravel-hncore/permissionmanager.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/laravel-hncore/permissionmanager.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/hncore/permissionmanager.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/backpack/permissionmanager
-[link-travis]: https://travis-ci.org/laravel-backpack/permissionmanager
-[link-scrutinizer]: https://scrutinizer-ci.com/g/laravel-backpack/permissionmanager/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/laravel-backpack/permissionmanager
-[link-downloads]: https://packagist.org/packages/backpack/permissionmanager
+[link-packagist]: https://packagist.org/packages/hncore/permissionmanager
+[link-travis]: https://travis-ci.org/laravel-hncore/permissionmanager
+[link-scrutinizer]: https://scrutinizer-ci.com/g/laravel-hncore/permissionmanager/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/laravel-hncore/permissionmanager
+[link-downloads]: https://packagist.org/packages/hncore/permissionmanager
 [link-author]: http://tabacitu.ro
 [link-author2]: http://updivision.com
 [link-contributors]: ../../contributors

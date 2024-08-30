@@ -8,14 +8,14 @@ supportComment: >
   Oups!
 
 
-  Looks like this is a support request, not a bug/feature. **Could you please [repost on StackOverflow](https://stackoverflow.com/questions/tagged/backpack-for-laravel), using the ```backpack-for-laravel``` tag**?
+  Looks like this is a support request, not a bug/feature. **Could you please [repost on StackOverflow](https://stackoverflow.com/questions/tagged/hncore-for-laravel), using the ```hncore-for-laravel``` tag**?
 
 
   Background: **Here at Backpack we use Github Issues only for tracking bugs and features**, not individual implementation issues. This helps _a lot_ in keeping our focus on improving Backpack. Thanks a lot for understanding!
 
 
   Here are all the Backpack communication mediums:
-   - Long questions (_I have done X and Y and it won't do Z wtf_) - [Stackoverflow](https://stackoverflow.com/questions/tagged/backpack-for-laravel), using the ```backpack-for-laravel``` tag; this is recommended for most questions, since other developers can then find the answer on a simple Google search; also, people get points for answering - and who doesn't like StackOverflow points?!
+   - Long questions (_I have done X and Y and it won't do Z wtf_) - [Stackoverflow](https://stackoverflow.com/questions/tagged/hncore-for-laravel), using the ```hncore-for-laravel``` tag; this is recommended for most questions, since other developers can then find the answer on a simple Google search; also, people get points for answering - and who doesn't like StackOverflow points?!
    - Quick help (_How do I do X_) - [Gitter Chatroom](https://gitter.im/BackpackForLaravel/Lobby);
    - Bug Reports, Feature Requests - Github Issues (here);
 

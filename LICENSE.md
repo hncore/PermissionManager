@@ -17,13 +17,13 @@ Copyright (c) 2015-2017 Cristian Tabacitu <hello@tabacitu.ro>
 >
 > **2. Should the Software be used for commercial purposes (the user of this Sofware, 
 > its employer, employees or clients make money by using this Software), the user is 
-> required to purchase a "Single Domain License" on [backpackforlaravel.com](https://backpackforlaravel.com), for each
+> required to purchase a "Single Domain License" on [hncoreforlaravel.com](https://hncoreforlaravel.com), for each
 > domain name this sofware will be used on, before its usage in production.
 > Failure to do so will constitute as illegal commercial use.**
 > 
 > **3. This license does not include the rights to publish or sublicense
 > this Sofware, its copies or any derivations, with or without the purpose of commercial profit. 
-> For inclusion in commercial packages or SaaS products, an "Unlimited License" is required, which can be purchased on [backpackforlaravel.com](https://backpackforlaravel.com). For inclusion in free open-source packages, express permission is needed from <hello@tabacitu.ro>.**
+> For inclusion in commercial packages or SaaS products, an "Unlimited License" is required, which can be purchased on [hncoreforlaravel.com](https://hncoreforlaravel.com). For inclusion in free open-source packages, express permission is needed from <hello@tabacitu.ro>.**
 >
 > **4. The above copyright notice and this permission notice shall be included in
 > all copies or substantial portions of the Software.**

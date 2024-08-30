@@ -13,7 +13,7 @@ newIssueWelcomeComment: >
   Backpack communication mediums:
    - Bug Reports, Feature Requests - Github Issues (here);
    - Quick help (_How do I do X_) - [Gitter Chatroom](https://gitter.im/BackpackForLaravel/Lobby);
-   - Long questions (_I have done X and Y and it won't do Z wtf_) - [Stackoverflow](https://stackoverflow.com/questions/tagged/backpack-for-laravel), using the ```backpack-for-laravel``` tag;
+   - Long questions (_I have done X and Y and it won't do Z wtf_) - [Stackoverflow](https://stackoverflow.com/questions/tagged/hncore-for-laravel), using the ```hncore-for-laravel``` tag;
 
 
   Please keep in mind Backpack offers no official / paid support. Whatever help you receive here, on Gitter, Slack or Stackoverflow is thanks to our awesome _awesome_ community members, who give up some of their time to help their peers. If you want to join our community, just start pitching in. We take pride in being a welcoming bunch.
@@ -64,7 +64,7 @@ firstPRMergeComment: >
   If you want to help out the community in other ways, you can:
    - **give your opinion on other Github Issues & PRs**;
    - **chat with others** in the [Gitter Chatroom](https://gitter.im/BackpackForLaravel/Lobby) (usually for quick help: _How do I do X_);
-   - **answer Backpack questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/backpack-for-laravel)**; you get points, people get help; you can subscribe to the ```backpack-for-laravel``` tag by [adding a new filter](https://stackexchange.com/filters/256210/my-filter-3); that will send you emails when new questions come up with our tag;
+   - **answer Backpack questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/hncore-for-laravel)**; you get points, people get help; you can subscribe to the ```hncore-for-laravel``` tag by [adding a new filter](https://stackexchange.com/filters/256210/my-filter-3); that will send you emails when new questions come up with our tag;
 
 
   Again. Thank you for the PR. You are a wonderful person. Keep 'em coming :-)
